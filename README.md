@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-# mlops-iris-classifier — Version B
-=======
-# mlops-iris-classifier — Version A
->>>>>>> conflict-demo-a
+
+# mlops-iris-classifier
+
 
 A sample ML project used to demonstrate Git-based version control
 workflows in an MLOps context.
