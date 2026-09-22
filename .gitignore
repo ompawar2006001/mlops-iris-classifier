@@ -24,4 +24,7 @@ mlruns/
 
 # IDE
 .vscode/
-.idea/
+.idea/practical5_feast/.venv-feast/
+
+# Feast local generated files
+practical5_feast/iris_feature_repo/feature_repo/data/*.db
