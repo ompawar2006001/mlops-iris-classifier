@@ -28,3 +28,13 @@ mlruns/
 
 # Feast local generated files
 practical5_feast/iris_feature_repo/feature_repo/data/*.db
+
+# MLflow local environment and generated files
+.venv-mlflow/
+mlruns/
+mlflow.db
+mlartifacts/
+confusion_matrix_*.png
+
+# Feast local environment
+practical5_feast/.venv-feast/
