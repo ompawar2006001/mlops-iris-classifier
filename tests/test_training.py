@@ -61,3 +61,32 @@ def test_model_predictions_have_valid_classes():
 
     assert len(predictions) == len(y_test)
     assert set(np.unique(predictions)).issubset({0, 1, 2})
+
+def test_prediction_probabilities_are_between_zero_and_one():
+    X_train, X_test, y_train, y_test = load_data()
+
+    model = train_model(X_train, y_train)
+    probabilities = model.predict_proba(X_test)
+
+    assert np.all(probabilities >= 0.0)
+    assert np.all(probabilities <= 1.0)
+
+
+def test_prediction_probabilities_sum_to_one():
+    X_train, X_test, y_train, y_test = load_data()
+
+    model = train_model(X_train, y_train)
+    probabilities = model.predict_proba(X_test)
+
+    assert np.allclose(probabilities.sum(axis=1), 1.0)
+
+
+def test_model_meets_minimum_accuracy_threshold():
+    X_train, X_test, y_train, y_test = load_data()
+
+    model = train_model(X_train, y_train)
+    accuracy, report = evaluate_model(model, X_test, y_test)
+
+    assert accuracy >= 0.90, (
+        f"Model accuracy {accuracy:.2%} is below the required 90% threshold"
+    )

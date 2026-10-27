@@ -43,57 +43,37 @@ pip install -r requirements.txt
 python3 src/train.py
 ```
 
-## Practical 8: Automated Testing with pytest and Coverage
+### Practical 8: Automated Testing with pytest and Coverage
 
-### Objective
+**Objective:** Test data collection, preprocessing, feature engineering, data validation, model training, and model output quality using automated tests.
 
-To implement automated tests for the machine learning pipeline, verify the correctness of individual components, and measure test coverage.
+#### Test Modules
 
-### Tools Used
-
-- Python
-- pytest
-- pytest-cov
-- scikit-learn
-- pandas
-
-### Test Modules
-
-| Test module | Test cases | Purpose |
+| Test File | Tests | Purpose |
 |---|---:|---|
-| `tests/test_collect.py` | 4 | Tests data collection, species mapping, timestamps, and CSV output. |
-| `tests/test_preprocess.py` | 3 | Tests duplicate removal, missing-value handling, and missing species removal. |
-| `tests/test_features.py` | 4 | Tests feature calculations, petal-length bins, and output saving. |
-| `tests/test_validate.py` | 5 | Tests valid data and rejects missing columns, null values, invalid species, and out-of-range measurements. |
-| `tests/test_training.py` | 5 | Tests data loading, model training, custom parameters, evaluation, and predictions. |
-| **Total** | **21** | **All test cases passed.** |
+| `tests/test_collect.py` | 4 | Data collection, species mapping, timestamps, and CSV output |
+| `tests/test_features.py` | 4 | Feature calculations, ratios, bins, and saving output |
+| `tests/test_preprocess.py` | 3 | Duplicate removal, missing-value handling, and timestamp removal |
+| `tests/test_training.py` | 8 | Data loading, model training, configuration, evaluation, predictions, probability checks, and model accuracy |
+| `tests/test_validate.py` | 5 | Required columns, null values, valid species, and measurement ranges |
+| **Total** | **24** | **All automated tests passed** |
 
-### Execute the tests
+#### Run the Tests
 
-Run the complete test suite with coverage and an XML test report:
+Run the complete test suite with coverage reporting and XML output:
 
 ```bash
 pytest tests/ -v --cov=src.pipeline --cov=src.train --cov-report=term-missing --junitxml=test-results.xml
 ```
 
-### Results
+#### Latest Test Results
 
-- Total tests executed: 21
-- Tests passed: 21
-- Tests failed: 0
-- Overall statement coverage: 78%
-- XML report: `test-results.xml`
+- **Tests passed:** 24/24
+- **Tests failed:** 0
+- **Execution time:** 2.17 seconds
+- **Overall code coverage:** 78%
+- **Test report:** `test-results.xml`
 
-### Conclusion
+The test suite verifies data-processing functions, training behavior, prediction validity, probability outputs, and a minimum model accuracy of 90%.
 
-Automated testing was successfully implemented for the data collection, preprocessing, feature engineering, validation, and model training components. All 21 tests passed, and the measured statement coverage was 78%. The tests help detect errors early and improve the reliability and maintainability of the machine learning pipeline.
-
-## Run the MLflow User Interface
-
-If your MLflow tracking server is configured to use the local SQLite database, start it with your project's configured tracking database and port. For example:
-
-```bash
-mlflow ui --backend-store-uri sqlite:///mlflow.db --host 127.0.0.1 --port 5000
-```
-
-Then open `http://127.0.0.1:5000` in your browser.
+The generated `test-results.xml` file contains the test execution results in JUnit XML format.
