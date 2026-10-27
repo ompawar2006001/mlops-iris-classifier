@@ -77,3 +77,4 @@ pytest tests/ -v --cov=src.pipeline --cov=src.train --cov-report=term-missing --
 The test suite verifies data-processing functions, training behavior, prediction validity, probability outputs, and a minimum model accuracy of 90%.
 
 The generated `test-results.xml` file contains the test execution results in JUnit XML format.
+CI verification test: confirming GitHub Actions checks on pull requests.
