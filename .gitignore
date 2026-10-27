@@ -38,3 +38,5 @@ confusion_matrix_*.png
 
 # Feast local environment
 practical5_feast/.venv-feast/
+.coverage
+.coverage
