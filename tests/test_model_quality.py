@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 
-MIN_ACCEPTABLE_ACCURACY = 0.999
+MIN_ACCEPTABLE_ACCURACY = 1.001
 
 
 def test_model_accuracy_meets_threshold():
